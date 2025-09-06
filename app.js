@@ -184,15 +184,109 @@ const QUIZ_DATA = [
             { id: 'ps24', q: 'When did East Pakistan become Bangladesh?', options: ['1970', '1971', '1972', '1973'], answer: 1 },
             { id: 'ps25', q: 'What is the national sport of Pakistan?', options: ['Cricket', 'Hockey', 'Football', 'Kabaddi'], answer: 1 }
         ]
+    },
+    {
+        topic: 'HTML',
+        id: 'html',
+        questions: [
+            { id: 'h1', q: 'What does HTML stand for?', options: ['Hyper Text Markup Language', 'High Tech Modern Language', 'Home Tool Markup Language', 'Hyperlink and Text Markup Language'], answer: 0 },
+            { id: 'h2', q: 'Which tag is used to create a heading?', options: ['head', 'h1', 'header', 'title'], answer: 1 },
+            { id: 'h3', q: 'Which tag is used to create a paragraph?', options: ['p', 'para', 'paragraph', 'text'], answer: 0 },
+            { id: 'h4', q: 'Which tag is used to create a link?', options: ['link', 'a', 'href', 'url'], answer: 1 },
+            { id: 'h5', q: 'Which attribute is used to specify the URL in a link?', options: ['src', 'href', 'url', 'link'], answer: 1 },
+            { id: 'h6', q: 'Which tag is used to insert an image?', options: ['image', 'img', 'picture', 'photo'], answer: 1 },
+            { id: 'h7', q: 'Which tag is used to create a list item?', options: ['item', 'li', 'list', 'ul'], answer: 1 },
+            { id: 'h8', q: 'Which tag is used to create an unordered list?', options: ['ul', 'ol', 'list', 'ulist'], answer: 0 },
+            { id: 'h9', q: 'Which tag is used to create a table?', options: ['table', 'tab', 'tbl', 'grid'], answer: 0 },
+            { id: 'h10', q: 'Which tag is used to create a table row?', options: ['row', 'tr', 'td', 'table-row'], answer: 1 },
+            { id: 'h11', q: 'Which tag is used for the largest heading?', options: ['h6', 'h1', 'heading', 'big'], answer: 1 },
+            { id: 'h12', q: 'Which tag is used to make text bold?', options: ['bold', 'b', 'strong', 'Both b and strong'], answer: 3 },
+            { id: 'h13', q: 'Which tag is used to make text italic?', options: ['italic', 'i', 'em', 'Both i and em'], answer: 3 },
+            { id: 'h14', q: 'Which tag is used to create a line break?', options: ['break', 'br', 'lb', 'newline'], answer: 1 },
+            { id: 'h15', q: 'Which tag is used to create a form?', options: ['form', 'input', 'field', 'submit'], answer: 0 },
+            { id: 'h16', q: 'Which attribute is used to specify the source of an image?', options: ['href', 'src', 'url', 'source'], answer: 1 },
+            { id: 'h17', q: 'Which tag is used to create a button?', options: ['btn', 'button', 'input', 'click'], answer: 1 },
+            { id: 'h18', q: 'Which tag is used to create a dropdown list?', options: ['dropdown', 'select', 'list', 'option'], answer: 1 },
+            { id: 'h19', q: 'Which tag is used to define the document type?', options: ['doctype', 'DOCTYPE', 'html', 'document'], answer: 1 },
+            { id: 'h20', q: 'Which tag contains metadata about the document?', options: ['meta', 'head', 'info', 'data'], answer: 1 },
+            { id: 'h21', q: 'Which tag is used to create a horizontal rule?', options: ['line', 'hr', 'rule', 'horizontal'], answer: 1 },
+            { id: 'h22', q: 'Which tag is used to create a text input field?', options: ['input type="text"', 'text', 'field', 'textbox'], answer: 0 },
+            { id: 'h23', q: 'Which tag is used to create a checkbox?', options: ['checkbox', 'input type="checkbox"', 'check', 'box'], answer: 1 },
+            { id: 'h24', q: 'Which tag is used to create a radio button?', options: ['radio', 'input type="radio"', 'button', 'choice'], answer: 1 },
+            { id: 'h25', q: 'Which tag is used to group related elements in a form?', options: ['group', 'fieldset', 'section', 'div'], answer: 1 }
+        ]
+    },
+    {
+        topic: 'CSS',
+        id: 'css',
+        questions: [
+            { id: 'css1', q: 'What does CSS stand for?', options: ['Cascading Style Sheets', 'Computer Style Sheets', 'Creative Style Sheets', 'Colorful Style Sheets'], answer: 0 },
+            { id: 'css2', q: 'Which property is used to change the text color?', options: ['text-color', 'color', 'font-color', 'text-style'], answer: 1 },
+            { id: 'css3', q: 'Which property is used to change the background color?', options: ['bg-color', 'background-color', 'color', 'background'], answer: 1 },
+            { id: 'css4', q: 'Which property is used to change the font size?', options: ['font-size', 'text-size', 'size', 'font-style'], answer: 0 },
+            { id: 'css5', q: 'Which property is used to make text bold?', options: ['font-weight', 'text-weight', 'font-style', 'text-style'], answer: 0 },
+            { id: 'css6', q: 'Which property is used to center text?', options: ['text-center', 'align', 'text-align', 'center'], answer: 2 },
+            { id: 'css7', q: 'Which property is used to add space inside an element?', options: ['margin', 'padding', 'spacing', 'border'], answer: 1 },
+            { id: 'css8', q: 'Which property is used to add space outside an element?', options: ['margin', 'padding', 'spacing', 'border'], answer: 0 },
+            { id: 'css9', q: 'Which property is used to set the width of an element?', options: ['width', 'size', 'length', 'dimension'], answer: 0 },
+            { id: 'css10', q: 'Which property is used to set the height of an element?', options: ['height', 'size', 'length', 'dimension'], answer: 0 },
+            { id: 'css11', q: 'Which property is used to hide an element?', options: ['visibility: hidden', 'display: none', 'hide: true', 'Both A and B'], answer: 3 },
+            { id: 'css12', q: 'Which property is used to change the font family?', options: ['font-family', 'font-type', 'font-name', 'text-font'], answer: 0 },
+            { id: 'css13', q: 'Which property is used to add a border?', options: ['border', 'outline', 'frame', 'edge'], answer: 0 },
+            { id: 'css14', q: 'Which property is used to make text italic?', options: ['font-style', 'text-style', 'font-weight', 'text-decoration'], answer: 0 },
+            { id: 'css15', q: 'Which property is used to underline text?', options: ['text-decoration', 'text-style', 'font-decoration', 'underline'], answer: 0 },
+            { id: 'css16', q: 'Which property is used to set the position of an element?', options: ['position', 'location', 'place', 'align'], answer: 0 },
+            { id: 'css17', q: 'Which property is used to set the opacity of an element?', options: ['opacity', 'transparency', 'alpha', 'visibility'], answer: 0 },
+            { id: 'css18', q: 'Which property is used to create rounded corners?', options: ['border-radius', 'corner-radius', 'border-corner', 'round-corner'], answer: 0 },
+            { id: 'css19', q: 'Which property is used to set the line height?', options: ['line-height', 'text-height', 'line-spacing', 'text-spacing'], answer: 0 },
+            { id: 'css20', q: 'Which property is used to set the cursor type?', options: ['cursor', 'pointer', 'mouse', 'cursor-type'], answer: 0 },
+            { id: 'css21', q: 'Which property is used to create a shadow effect?', options: ['shadow', 'box-shadow', 'text-shadow', 'Both B and C'], answer: 3 },
+            { id: 'css22', q: 'Which property is used to control the layout method?', options: ['display', 'layout', 'method', 'type'], answer: 0 },
+            { id: 'css23', q: 'Which property is used to set the z-index?', options: ['z-index', 'layer', 'depth', 'stack'], answer: 0 },
+            { id: 'css24', q: 'Which property is used to create a gradient background?', options: ['gradient', 'background-gradient', 'background-image', 'color-gradient'], answer: 2 },
+            { id: 'css25', q: 'Which property is used to control text overflow?', options: ['text-overflow', 'overflow', 'text-wrap', 'word-wrap'], answer: 0 }
+        ]
+    },
+    {
+        topic: 'JavaScript',
+        id: 'javascript',
+        questions: [
+            { id: 'js1', q: 'Which keyword is used to declare a variable in JavaScript?', options: ['var', 'let', 'const', 'All of the above'], answer: 3 },
+            { id: 'js2', q: 'Which method is used to write output in JavaScript?', options: ['console.log()', 'document.write()', 'alert()', 'All of the above'], answer: 3 },
+            { id: 'js3', q: 'Which operator is used for equality comparison?', options: ['=', '==', '===', 'Both B and C'], answer: 3 },
+            { id: 'js4', q: 'Which method is used to add an element to an array?', options: ['push()', 'add()', 'insert()', 'append()'], answer: 0 },
+            { id: 'js5', q: 'Which method is used to remove the last element from an array?', options: ['pop()', 'remove()', 'delete()', 'splice()'], answer: 0 },
+            { id: 'js6', q: 'Which keyword is used to create a function?', options: ['function', 'func', 'def', 'create'], answer: 0 },
+            { id: 'js7', q: 'Which method is used to convert a string to a number?', options: ['parseInt()', 'Number()', 'parseFloat()', 'All of the above'], answer: 3 },
+            { id: 'js8', q: 'Which event occurs when a user clicks on an element?', options: ['onclick', 'onmouseover', 'onchange', 'onload'], answer: 0 },
+            { id: 'js9', q: 'Which method is used to find an element by ID?', options: ['getElementById()', 'findById()', 'getElement()', 'findElement()'], answer: 0 },
+            { id: 'js10', q: 'Which symbol is used for comments in JavaScript?', options: ['//', '/* */', '#', 'Both A and B'], answer: 3 },
+            { id: 'js11', q: 'Which method is used to join array elements into a string?', options: ['join()', 'concat()', 'merge()', 'combine()'], answer: 0 },
+            { id: 'js12', q: 'Which keyword is used to check a condition?', options: ['if', 'check', 'condition', 'test'], answer: 0 },
+            { id: 'js13', q: 'Which loop is used to iterate over object properties?', options: ['for...in', 'for...of', 'forEach', 'while'], answer: 0 },
+            { id: 'js14', q: 'Which method is used to create a new array with filtered elements?', options: ['filter()', 'map()', 'reduce()', 'find()'], answer: 0 },
+            { id: 'js15', q: 'Which method is used to execute a function after a delay?', options: ['setTimeout()', 'setInterval()', 'delay()', 'wait()'], answer: 0 },
+            { id: 'js16', q: 'Which keyword is used to handle exceptions?', options: ['try', 'catch', 'throw', 'All of the above'], answer: 3 },
+            { id: 'js17', q: 'Which method is used to convert an object to JSON?', options: ['JSON.stringify()', 'JSON.parse()', 'toString()', 'toJSON()'], answer: 0 },
+            { id: 'js18', q: 'Which method is used to get the length of a string?', options: ['length', 'size()', 'count()', 'len()'], answer: 0 },
+            { id: 'js19', q: 'Which method is used to replace text in a string?', options: ['replace()', 'substitute()', 'change()', 'swap()'], answer: 0 },
+            { id: 'js20', q: 'Which method is used to convert a string to uppercase?', options: ['toUpperCase()', 'upper()', 'uppercase()', 'toUpper()'], answer: 0 },
+            { id: 'js21', q: 'Which method is used to check if an array includes a value?', options: ['includes()', 'contains()', 'has()', 'indexOf()'], answer: 0 },
+            { id: 'js22', q: 'Which keyword is used to exit from a loop?', options: ['break', 'exit', 'stop', 'end'], answer: 0 },
+            { id: 'js23', q: 'Which method is used to sort an array?', options: ['sort()', 'order()', 'arrange()', 'organize()'], answer: 0 },
+            { id: 'js24', q: 'Which method is used to reverse an array?', options: ['reverse()', 'flip()', 'invert()', 'backward()'], answer: 0 },
+            { id: 'js25', q: 'Which keyword is used to define a class?', options: ['class', 'object', 'constructor', 'prototype'], answer: 0 }
+        ]
     }
 ];
 
 
-let state = { topicIndex: null, current: 0, answers: {} };
+let state = { topicIndex: null, current: 0, answers: {}, userName: '', completedTopics: {} };
 
 // DOM Refs
 const startScreen = document.getElementById('start-screen');
 const startButton = document.getElementById('start-button');
+const nameInput = document.getElementById('name-input');
 const topicsScreen = document.getElementById('topics-screen');
 const topicsContainer = document.getElementById('topics');
 const backToStart = document.getElementById('back-to-start');
@@ -215,6 +309,8 @@ const scoreTotal = document.getElementById('score-total');
 const resultsList = document.getElementById('results-list');
 const resultsBack = document.getElementById('results-back-topics');
 const retryBtn = document.getElementById('retry-topic');
+const userNameDisplay = document.getElementById('user-name-display');
+const overallPercentage = document.getElementById('overall-percentage');
 
 // Screens
 function showStart() { startScreen.classList.remove('hidden'); topicsScreen.classList.add('hidden'); quizScreen.classList.add('hidden'); resultsScreen.classList.add('hidden'); }
@@ -222,13 +318,54 @@ function showTopics() { startScreen.classList.add('hidden'); topicsScreen.classL
 function showQuiz() { startScreen.classList.add('hidden'); topicsScreen.classList.add('hidden'); quizScreen.classList.remove('hidden'); resultsScreen.classList.add('hidden'); }
 function showResultsScreen() { startScreen.classList.add('hidden'); topicsScreen.classList.add('hidden'); quizScreen.classList.add('hidden'); resultsScreen.classList.remove('hidden'); }
 
+// Name function
+function setUserName() {
+    const name = nameInput.value.trim();
+    if (!name) {
+        alert('Please enter your name!');
+        return false;
+    }
+    state.userName = name;
+    return true;
+}
+
+// Calculate overall percentage
+function calculateOverallPercentage() {
+    const completedCount = Object.keys(state.completedTopics).length;
+    if (completedCount === 0) return 0;
+    
+    const totalScore = Object.values(state.completedTopics).reduce((sum, score) => sum + score.score, 0);
+    const totalQuestions = Object.values(state.completedTopics).reduce((sum, score) => sum + score.total, 0);
+    
+    return Math.round((totalScore / totalQuestions) * 100);
+}
+
 // Topics render
 function renderTopics() {
     topicsContainer.innerHTML = '';
+    
+    // Display user name and overall percentage
+    if (state.userName) {
+        userNameDisplay.textContent = `Welcome, ${state.userName}!`;
+        const percentage = calculateOverallPercentage();
+        const completedCount = Object.keys(state.completedTopics).length;
+        if (completedCount > 0) {
+            overallPercentage.textContent = `Overall Performance: ${percentage}% (${completedCount}/${QUIZ_DATA.length} topics completed)`;
+        }
+    }
+    
     QUIZ_DATA.forEach((t, i) => {
         const el = document.createElement('button');
-        el.className = 'p-4 border rounded-lg text-left hover:shadow-md';
-        el.innerHTML = `<div class="text-lg font-semibold">${t.topic}</div><div class="text-sm text-gray-600">${t.questions.length} questions</div>`;
+        const isCompleted = state.completedTopics[i];
+        el.className = `p-4 border rounded-lg text-left hover:shadow-md ${isCompleted ? 'bg-green-50 border-green-300' : ''}`;
+        
+        let statusText = '';
+        if (isCompleted) {
+            const percentage = Math.round((isCompleted.score / isCompleted.total) * 100);
+            statusText = `<div class="text-sm text-green-600 font-semibold">Completed: ${percentage}%</div>`;
+        }
+        
+        el.innerHTML = `<div class="text-lg font-semibold">${t.topic}</div><div class="text-sm text-gray-600">${t.questions.length} questions</div>${statusText}`;
         el.addEventListener('click', () => startTopic(i));
         topicsContainer.appendChild(el);
     });
@@ -300,7 +437,12 @@ nextBtn.addEventListener('click', () => {
         renderQuestion();
     } else showResults();
 });
-startButton.addEventListener('click', () => { renderTopics(); showTopics(); });
+startButton.addEventListener('click', () => {
+    if (setUserName()) {
+        renderTopics();
+        showTopics();
+    }
+});
 clearBtn.addEventListener('click', () => {
     const topic = QUIZ_DATA[state.topicIndex];
     if (!topic) return;
@@ -344,6 +486,39 @@ function showResults() {
 
     scoreVal.textContent = score;
     scoreTotal.textContent = topic.questions.length;
+    
+    // Store completed topic score
+    state.completedTopics[state.topicIndex] = {
+        score: score,
+        total: topic.questions.length,
+        percentage: Math.round((score / topic.questions.length) * 100)
+    };
+    
+    // Add percentage display
+    const percentage = Math.round((score / topic.questions.length) * 100);
+    const percentageEl = document.createElement('div');
+    percentageEl.className = 'text-2xl font-bold text-center mt-4 p-4 bg-black text-white rounded-lg';
+    percentageEl.innerHTML = `${state.userName} - Your Score: ${percentage}%`;
+    
+    // Add boost message based on percentage
+    const boostEl = document.createElement('div');
+    boostEl.className = 'text-center mt-2 p-2 rounded';
+    if (percentage >= 90) {
+        boostEl.className += ' bg-green-100 text-green-800';
+        boostEl.textContent = '🎉 Excellent! You\'re a quiz master!';
+    } else if (percentage >= 75) {
+        boostEl.className += ' bg-black text-white';
+        boostEl.textContent = '👏 Great job! Keep it up!';
+    } else if (percentage >= 60) {
+        boostEl.className += ' bg-yellow-100 text-yellow-800';
+        boostEl.textContent = '👍 Good work! You can do better!';
+    } else {
+        boostEl.className += ' bg-red-100 text-red-800';
+        boostEl.textContent = '💪 Keep practicing! You\'ll improve!';
+    }
+    
+    resultsList.insertBefore(boostEl, resultsList.firstChild);
+    resultsList.insertBefore(percentageEl, resultsList.firstChild);
 }
 resultsBack.addEventListener('click', () => { renderTopics(); showTopics(); });
 retryBtn.addEventListener('click', () => { startTopic(state.topicIndex); });
