@@ -1,4 +1,4 @@
-# SMIT-Prepration-QuizQuiz App
+#Test-QuizQuiz App
 Overview
 The Quiz App is a web-based application designed to help students test their knowledge across multiple subjects, including Islamiyat, Mathematics, Computer Science, IQ, English, and Pakistan Studies. Each topic contains 25 multiple-choice questions with four options, tailored to be accessible and educational for students. The app is built using HTML, JavaScript, and CSS, leveraging the provided quiz_data.js file for question data.
 Purpose
