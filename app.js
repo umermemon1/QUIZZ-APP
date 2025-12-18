@@ -1,36 +1,3 @@
-// Firebase integration
-let firebaseEnabled = false;
-let db = null;
-
-// Check if Firebase is available
-window.addEventListener('load', () => {
-    if (window.db) {
-        firebaseEnabled = true;
-        db = window.db;
-        console.log('Firebase connected successfully');
-    }
-});
-
-// Firebase functions
-async function saveQuizResult(userName, topic, score, totalQuestions, answers) {
-    if (!firebaseEnabled) return;
-    try {
-        const { collection, addDoc } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-        await addDoc(collection(db, 'quiz-results'), {
-            userName,
-            topic,
-            score,
-            totalQuestions,
-            percentage: Math.round((score / totalQuestions) * 100),
-            answers,
-            timestamp: new Date()
-        });
-        console.log('Result saved to Firebase');
-    } catch (error) {
-        console.error('Error saving to Firebase:', error);
-    }
-}
-
 const QUIZ_DATA = [
     {
         topic: 'Islamiyat',
@@ -526,11 +493,6 @@ function showResults() {
         total: topic.questions.length,
         percentage: Math.round((score / topic.questions.length) * 100)
     };
-    
-    // Save to Firebase
-    if (firebaseEnabled) {
-        saveQuizResult(state.userName, topic.topic, score, topic.questions.length, state.answers);
-    }
     
     // Add percentage display
     const percentage = Math.round((score / topic.questions.length) * 100);
