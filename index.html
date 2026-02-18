@@ -1,99 +1,180 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>SMIT Quiz —By UMER</title>
-    <link rel="shortcut icon"
-        href="https://thumbs.dreamstime.com/b/quiz-icon-isolated-dark-background-quiz-icon-isolated-dark-background-simple-vector-logo-235742772.jpg"
-        type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="https://thumbs.dreamstime.com/b/quiz-icon-isolated-dark-background-quiz-icon-isolated-dark-background-simple-vector-logo-235742772.jpg"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <style>
-        .option-selected {
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
-        }
+      .option-selected {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+      }
 
-        .correct {
-            background-color: #ecfdf5;
-            border: 1px solid #bbf7d0;
-        }
+      .correct {
+        background-color: #ecfdf5;
+        border: 1px solid #bbf7d0;
+      }
 
-        .incorrect {
-            background-color: #fff1f2;
-            border: 1px solid #fecaca;
-        }
+      .incorrect {
+        background-color: #fff1f2;
+        border: 1px solid #fecaca;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-white text-black min-h-screen flex items-center justify-center p-6">
-
+  <body
+    class="bg-white text-black min-h-screen flex items-center justify-center p-6"
+  >
     <div id="app" class="w-full max-w-4xl">
-        <!-- Start Screen -->
-        <div id="start-screen" class="text-center">
-            <h1 class="text-3xl font-bold mb-4">SMIT — Extreme Preparation Quiz</h1>
-            <p class="mb-6 text-sm">225 extremely-hard MCQs across 9 topics. Click Start to begin.</p>
-            <div class="mb-6">
-                <input id="name-input" type="text" placeholder="Enter your name"
-                    class="px-4 py-2 border rounded-lg text-center text-lg w-64 focus:outline-none focus:ring-2 focus:ring-black">
-            </div>
-            <button id="start-button"
-                class="px-6 py-3 bg-black text-white rounded-lg text-lg hover:opacity-90">Start</button>
+      <!-- Start Screen -->
+      <div id="start-screen" class="text-center">
+        <h1 class="text-3xl font-bold mb-4">SMIT — Extreme Preparation Quiz</h1>
+        <p class="mb-6 text-sm">
+          225 extremely-hard MCQs across 9 topics. Click Start to begin.
+        </p>
+        <div class="mb-6">
+          <form>
+            <input
+              id="name-input"
+              type="text"
+              placeholder="Enter your name"
+              class="px-4 py-2 border rounded-lg text-center text-lg w-64 focus:outline-none focus:ring-2 focus:ring-black"
+            />
+          </form>
         </div>
+        <button
+          id="start-button"
+          class="px-6 py-3 bg-black text-white rounded-lg text-lg hover:opacity-90"
+        >
+          Start
+        </button>
+        <button
+          id="reset-button"
+          class="ml-4 px-6 py-3 border border-black rounded-lg text-lg hover:bg-gray-100"
+        >
+          Reset All
+        </button>
+      </div>
 
-        <!-- Topic selection -->
-        <div id="topics-screen" class="hidden">
-            <div class="text-center mb-6">
-                <h2 id="user-name-display" class="text-2xl font-semibold mb-2"></h2>
-                <p id="overall-percentage" class="text-lg text-grey-600 font-medium"></p>
-            </div>
-            <h3 class="text-xl font-semibold mb-4">Select Topic</h3>
-            <div id="topics" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
-            <div class="mt-6">
-                <button id="back-to-start" class="px-4 py-2 border rounded hover:bg-gray-100">Back</button>
-            </div>
+      <!-- Topic selection -->
+      <div id="topics-screen" class="hidden">
+        <div class="text-center mb-6">
+          <h2 id="user-name-display" class="text-2xl font-semibold mb-2"></h2>
+          <p
+            id="overall-percentage"
+            class="text-lg text-grey-600 font-medium"
+          ></p>
         </div>
+        <h3 class="text-xl font-semibold mb-4">Select Topic</h3>
+        <div id="topics" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+        <div class="mt-6 flex gap-2">
+          <button
+            id="back-to-start"
+            class="px-4 py-2 border rounded hover:bg-gray-100"
+          >
+            Back
+          </button>
+          <button
+            id="view-history"
+            class="px-4 py-2 border rounded hover:bg-gray-100"
+          >
+            View History
+          </button>
+        </div>
+      </div>
 
-        <!-- Quiz area -->
-        <div id="quiz-screen" class="hidden">
-            <div class="flex items-center justify-between mb-3">
-                <div>
-                    <span id="topic-title" class="font-semibold"></span>
-                </div>
-                <button id="quit-topics" class="px-3 py-1 border rounded hover:bg-gray-100 text-sm">Quit</button>
-            </div>
-            <div class="mb-2 text-gray-600 text-sm">
-                Question <span id="q-index">1</span> / <span id="q-total">11</span>
-            </div>
-            <div id="question-text" class="text-lg font-medium mb-4"></div>
-            <ul id="options-list" class="space-y-2 mb-4"></ul>
-            <div class="flex gap-2 mb-4">
-                <button id="prev-btn" class="px-4 py-2 border rounded hover:bg-gray-100">Previous</button>
-                <button id="next-btn"
-                    class="px-4 py-2 border rounded bg-black text-white hover:opacity-90">Next</button>
-                <button id="clear-btn" class="px-4 py-2 border rounded hover:bg-gray-100">Clear</button>
-            </div>
-            <div class="text-sm text-gray-600">
-                Answered: <span id="answered-count">0</span> / <span id="q-total-2">11</span>
-            </div>
+      <!-- Quiz area -->
+      <div id="quiz-screen" class="hidden">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <span id="topic-title" class="font-semibold"></span>
+          </div>
+          <button
+            id="quit-topics"
+            class="px-3 py-1 border rounded hover:bg-gray-100 text-sm"
+          >
+            Quit
+          </button>
         </div>
+        <div class="mb-2 text-gray-600 text-sm">
+          Question <span id="q-index">1</span> / <span id="q-total">11</span>
+        </div>
+        <div id="question-text" class="text-lg font-medium mb-4"></div>
+        <ul id="options-list" class="space-y-2 mb-4"></ul>
+        <div class="flex gap-2 mb-4">
+          <button
+            id="prev-btn"
+            class="px-4 py-2 border rounded hover:bg-gray-100"
+          >
+            Previous
+          </button>
+          <button
+            id="next-btn"
+            class="px-4 py-2 border rounded bg-black text-white hover:opacity-90"
+          >
+            Next
+          </button>
+          <button
+            id="clear-btn"
+            class="px-4 py-2 border rounded hover:bg-gray-100"
+          >
+            Clear
+          </button>
+        </div>
+        <div class="text-sm text-gray-600">
+          Answered: <span id="answered-count">0</span> /
+          <span id="q-total-2">11</span>
+        </div>
+      </div>
 
-        <!-- Results -->
-        <div id="results-screen" class="hidden">
-            <div class="mb-4">
-                <h2 class="text-2xl font-semibold mb-2">Results — <span id="results-topic"></span></h2>
-                <div class="mb-2">Score: <span id="score-val" class="font-bold text-lg"></span> / <span
-                        id="score-total"></span></div>
-                <div class="flex gap-2">
-                    <button id="results-back-topics" class="px-4 py-2 border rounded hover:bg-gray-100">Back
-                        to Topics</button>
-                    <button id="retry-topic" class="px-4 py-2 border rounded hover:bg-gray-100">Retry Topic</button>
-                </div>
-            </div>
-            <ul id="results-list" class="space-y-4"></ul>
+      <!-- Results -->
+      <div id="results-screen" class="hidden">
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold mb-2">
+            Results — <span id="results-topic"></span>
+          </h2>
+          <div class="mb-2">
+            Score: <span id="score-val" class="font-bold text-lg"></span> /
+            <span id="score-total"></span>
+          </div>
+          <div class="flex gap-2">
+            <button
+              id="results-back-topics"
+              class="px-4 py-2 border rounded hover:bg-gray-100"
+            >
+              Back to Topics
+            </button>
+            <button
+              id="retry-topic"
+              class="px-4 py-2 border rounded hover:bg-gray-100"
+            >
+              Retry Topic
+            </button>
+          </div>
         </div>
+        <ul id="results-list" class="space-y-4"></ul>
+      </div>
+
+      <!-- History Screen -->
+      <div id="history-screen" class="hidden">
+        <div class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Quiz History</h2>
+          <div id="history-list" class="space-y-3 max-h-96 overflow-y-auto"></div>
+        </div>
+        <button
+          id="history-back-topics"
+          class="px-4 py-2 border rounded hover:bg-gray-100"
+        >
+          Back to Topics
+        </button>
+      </div>
     </div>
-    <script src="app.js"></script>
-</body>
-
+    <script src="script.mjs"></script>
+  </body>
 </html>
