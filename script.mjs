@@ -1643,6 +1643,20 @@ function restoreQuizState() {
     showQuiz();
     renderQuestion();
     updateAnsweredCount();
+
+    // Enter fullscreen mode when restoring quiz
+    setTimeout(() => {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(() => {});
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen().catch(() => {});
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen().catch(() => {});
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen().catch(() => {});
+      }
+    }, 100);
     return true;
   }
   return false;
@@ -1724,25 +1738,26 @@ function showHistoryScreen() {
 
 function renderHistory() {
   historyList.innerHTML = "";
-  
+
   if (state.history.length === 0) {
-    historyList.innerHTML = "<p class='text-gray-500 text-center py-4'>No quiz history yet. Complete a quiz to see your results here.</p>";
+    historyList.innerHTML =
+      "<p class='text-gray-500 text-center py-4'>No quiz history yet. Complete a quiz to see your results here.</p>";
     return;
   }
-  
+
   // Show latest results first
   const sortedHistory = [...state.history].reverse();
-  
+
   sortedHistory.forEach((entry, index) => {
     const el = document.createElement("div");
     el.className = "p-4 border rounded-lg bg-gray-50";
-    
+
     // Determine color based on percentage
     let bgClass = "bg-red-100";
     if (entry.percentage >= 90) bgClass = "bg-green-100";
     else if (entry.percentage >= 75) bgClass = "bg-green-50";
     else if (entry.percentage >= 60) bgClass = "bg-yellow-100";
-    
+
     el.innerHTML = `
       <div class="flex justify-between items-start">
         <div>
@@ -1830,6 +1845,20 @@ function startTopic(i) {
   showQuiz();
   renderQuestion();
   updateAnsweredCount();
+
+  // Enter fullscreen mode with cross-browser support
+  setTimeout(() => {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch(() => {});
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen().catch(() => {});
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen().catch(() => {});
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen().catch(() => {});
+    }
+  }, 100);
 }
 
 // Render Qs
@@ -1922,13 +1951,63 @@ clearBtn.addEventListener("click", () => {
   renderQuestion();
   updateAnsweredCount();
 });
+// Exit fullscreen function with cross-browser support
+function exitFullscreen() {
+  const isFullscreen =
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement;
+
+  if (isFullscreen) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen().catch(() => {});
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen().catch(() => {});
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen().catch(() => {});
+    }
+  }
+}
+
+// Handle fullscreen exit during quiz - go back to topics
+function handleFullscreenExit() {
+  const isFullscreen =
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement;
+
+  if (!isFullscreen && state.topicIndex !== null) {
+    // User exited fullscreen during quiz - go back to topics
+    state.topicIndex = null;
+    state.current = 0;
+    state.answers = {};
+    saveState();
+    renderTopics();
+    showTopics();
+  }
+}
+
+// Add event listeners for all browser prefixes
+document.addEventListener("fullscreenchange", handleFullscreenExit);
+document.addEventListener("webkitfullscreenchange", handleFullscreenExit);
+document.addEventListener("mozfullscreenchange", handleFullscreenExit);
+document.addEventListener("MSFullscreenChange", handleFullscreenExit);
+
 quitTopics.addEventListener("click", () => {
   renderTopics();
   showTopics();
+  exitFullscreen();
 });
 
 // Results
 function showResults() {
+  // Exit fullscreen when quiz ends
+  exitFullscreen();
+
   const topic = QUIZ_DATA[state.topicIndex];
   if (!topic) return;
   showResultsScreen();
@@ -1986,7 +2065,7 @@ function showResults() {
     total: topic.questions.length,
     percentage: Math.round((score / topic.questions.length) * 100),
   };
-  
+
   // Save to history with timestamp
   const historyEntry = {
     topicId: topic.id,
@@ -1999,7 +2078,7 @@ function showResults() {
     time: moment().format("HH:mm:ss"),
   };
   state.history.push(historyEntry);
-  
+
   // Clear current topic answers as it's completed
   state.answers = {};
   state.topicIndex = null;
@@ -2036,6 +2115,7 @@ function showResults() {
 resultsBack.addEventListener("click", () => {
   renderTopics();
   showTopics();
+  exitFullscreen();
 });
 
 // View history button
@@ -2058,7 +2138,11 @@ backToStart.addEventListener("click", () => {
 
 // Reset all progress
 resetButton.addEventListener("click", () => {
-  if (confirm("Are you sure you want to reset all progress? This cannot be undone.")) {
+  if (
+    confirm(
+      "Are you sure you want to reset all progress? This cannot be undone.",
+    )
+  ) {
     localStorage.removeItem(STATE_KEY);
     state = {
       topicIndex: null,
@@ -2080,7 +2164,7 @@ if (hasSavedState) {
   if (state.userName) {
     nameInput.value = state.userName;
   }
-  
+
   // Check if user was in the middle of a quiz
   if (state.topicIndex !== null) {
     restoreQuizState();
