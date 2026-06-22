@@ -119,4 +119,4 @@ This project is open-source and available under the MIT License.
 
 Developed by **Umer Memon**
 
-GitHub: https://github.com/umermemon1
+GitHub: https://github.com/umerjs
